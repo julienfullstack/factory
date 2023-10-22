@@ -30,7 +30,7 @@
       }
     }
     ``` 
-* _In the HairSalon dictionary, restore with $ dotnet restore_
+* _In the Factory dictionary, restore with $ dotnet restore_
 * _Download MySQL and MySQL Workbench if you do not have them already_
 * _In MySQL Workbench, go to the Navigator > Administration window and select Data Import/Restore_
 * _In Import Options select Import from Self-Contained File_
