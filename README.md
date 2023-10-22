@@ -22,7 +22,7 @@
 * _Clone this respository to your desktop_
 * _Navigate to the top level of the directory_
 * _Open in your code editor_
-* _Create a file named "appsettings.json" in the HairSalon directory with the following code, replacing the "YOUR" statements with applicable information:
+* _Create a file named "appsettings.json" in the Factory directory with the following code, replacing the "YOUR" statements with applicable information:
    ```json
     {
       "ConnectionStrings": {

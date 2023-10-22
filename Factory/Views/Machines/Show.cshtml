@@ -13,12 +13,12 @@ else
 {
   <h4>This Machine belongs to the following Engineers:</h4>
   <ul>
-    @foreach(ClientStylist join in Model.JoinEntities)
+    @foreach(EngineerMachine join in Model.JoinEntities)
     {
       <li>Engineer: @join.Engineer.Name</li>
       @using (Html.BeginForm("DeleteJoin", "Machines"))
       {
-        @Html.Hidden("joinId", @join.ClientStylistId)
+        @Html.Hidden("joinId", @join.EngineerMachineId)
         <input type="submit" value="Delete"/>
       }
     }
@@ -26,6 +26,6 @@ else
 
 }
 
-<p>@Html.ActionLink("Add a Engineer to Machine", "AddStylist", new { id = Model.ClientId })</p>
-<p>@Html.ActionLink("Back to Machine list", "Index")
+<p>@Html.ActionLink("Add a Engineer to Machine", "AddEngineer", new { id = Model.MachineId })</p>
+<p>@Html.ActionLink("Back to Machine list", "Index") 
 
