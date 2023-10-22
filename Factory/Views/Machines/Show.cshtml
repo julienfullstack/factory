@@ -1,0 +1,31 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Machine
+@using Factory.Models
+
+@if(@Model.JoinEntities.Count == 0)
+{
+  <p>This Machine has no Engineer</p>
+}
+else
+{
+  <h4>This Machine belongs to the following Engineers:</h4>
+  <ul>
+    @foreach(ClientStylist join in Model.JoinEntities)
+    {
+      <li>Engineer: @join.Engineer.Name</li>
+      @using (Html.BeginForm("DeleteJoin", "Machines"))
+      {
+        @Html.Hidden("joinId", @join.ClientStylistId)
+        <input type="submit" value="Delete"/>
+      }
+    }
+  </ul>
+
+}
+
+<p>@Html.ActionLink("Add a Engineer to Machine", "AddStylist", new { id = Model.ClientId })</p>
+<p>@Html.ActionLink("Back to Machine list", "Index")
+

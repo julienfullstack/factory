@@ -1,0 +1,26 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Engineer
+@using Factory.Models
+
+
+@if (Model.JoinEntities != null && Model.JoinEntities.Any())
+{
+    <h2>Machines for @Html.DisplayFor(model => model.Name):</h2>
+    foreach (EngineerMachine joinEntity in Model.JoinEntities)
+    {
+        <p>Machine Name: @joinEntity.Machine.Name</p>
+    }
+    
+}
+else
+{
+    <p>No Machines available for this Engineer.</p>
+}
+
+@Html.ActionLink("Delete", "Delete", new { id = Model.EngineerId })
+
+<p>@Html.ActionLink("Add a Machine to Engineer", "AddClient", new { id = Model.EngineerId })</p>
+
