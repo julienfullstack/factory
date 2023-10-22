@@ -1,6 +1,6 @@
 # _Dr. Sillystringz Factory_
 
-#### By: _**Julien Lenaz**_, _**Will Jolley*_, _*Brandon Wright*_
+#### By: _**Julien Lenaz**
 
 #### _A website for a factory owner to manage engineers and machines_
 
