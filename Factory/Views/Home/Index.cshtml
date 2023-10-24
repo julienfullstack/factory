@@ -5,7 +5,7 @@
 @using Factory.Models;
 
 <h1>Dr.SillyStringz's Factory</h1>
-
+@* 
 <h4>Engineers</h4>
 @if (Model["Engineers"].Length == 0)
 {
@@ -26,10 +26,10 @@
 <ul>
   @foreach (Machine Machine in Model["Machines"])
   {
-    <li>@Html.ActionLink(@Machine.Name, "Show", "Machines", new { id = @Machine.MachineId})</li>
+    <li>@Html.ActionLink(@Machine.Name, "Show", "Machines", new { id = @Machine.MachineId})</li> *@
   }
-<!-- <p>@Html.ActionLink("Add a Engineer", "Create", "Engineers", null, new { @class = "btn" })</p>
-<p>@Html.ActionLink("Add a Machine", "Create", "Machines", null, new { @class = "btn" })</p> -->
+<p>@Html.ActionLink("Add a Engineer", "Create", "Engineers", null, new { @class = "btn" })</p>
+<p>@Html.ActionLink("Add a Machine", "Create", "Machines", null, new { @class = "btn" })</p>
 <p>@Html.ActionLink("Manage Engineers", "Index", "Engineers", null, new { @class = "btn" })</p>
 <p>@Html.ActionLink("Manage Machines", "Index", "Machines", null, new { @class = "btn" })</p>
 ```
