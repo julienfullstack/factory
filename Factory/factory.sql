@@ -1,10 +1,12 @@
+CREATE DATABASE  IF NOT EXISTS `factory` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `factory`;
 -- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
 --
 -- Host: localhost    Database: factory
 -- ------------------------------------------------------
 -- Server version	8.0.34
 
-/*!40101 SET @OLD_CHARACTER_SET_Machine=@@CHARACTER_SET_Machine */;
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!50503 SET NAMES utf8 */;
@@ -16,19 +18,42 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `__efmigrationshistory`
+--
+
+DROP TABLE IF EXISTS `__efmigrationshistory`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `__efmigrationshistory` (
+  `MigrationId` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `ProductVersion` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  PRIMARY KEY (`MigrationId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `__efmigrationshistory`
+--
+
+LOCK TABLES `__efmigrationshistory` WRITE;
+/*!40000 ALTER TABLE `__efmigrationshistory` DISABLE KEYS */;
+/*!40000 ALTER TABLE `__efmigrationshistory` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `engineermachines`
 --
 
 DROP TABLE IF EXISTS `engineermachines`;
-/*!40101 SET @saved_cs_Machine     = @@character_set_Machine */;
-/*!50503 SET character_set_Machine = utf8mb4 */;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `engineermachines` (
   `EngineerMachineId` int NOT NULL AUTO_INCREMENT,
   `EngineerId` int NOT NULL,
   `MachineId` int NOT NULL,
   PRIMARY KEY (`EngineerMachineId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_Machine = @saved_cs_Machine */;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `engineermachines`
@@ -44,14 +69,14 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `engineers`;
-/*!40101 SET @saved_cs_Machine     = @@character_set_Machine */;
-/*!50503 SET character_set_Machine = utf8mb4 */;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `engineers` (
   `EngineerId` int NOT NULL AUTO_INCREMENT,
   `Name` varchar(45) NOT NULL,
   PRIMARY KEY (`EngineerId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_Machine = @saved_cs_Machine */;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `engineers`
@@ -67,14 +92,14 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `machines`;
-/*!40101 SET @saved_cs_Machine     = @@character_set_Machine */;
-/*!50503 SET character_set_Machine = utf8mb4 */;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `machines` (
   `MachineId` int NOT NULL AUTO_INCREMENT,
   `Name` varchar(45) NOT NULL,
   PRIMARY KEY (`MachineId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_Machine = @saved_cs_Machine */;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `machines`
@@ -89,9 +114,9 @@ UNLOCK TABLES;
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_Machine=@OLD_CHARACTER_SET_Machine */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-10-21 20:10:26
+-- Dump completed on 2023-10-24 15:59:49
