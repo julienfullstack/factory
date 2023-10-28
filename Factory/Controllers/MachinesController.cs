@@ -20,7 +20,7 @@ namespace Factory.Controllers
     public ActionResult Index()
     {
       List<Machine> model = _db.Machines
-                              .Include(Machine => Machine.Engineer)
+                              // .Include(Machine => Machine.Engineer)
                               .ToList();
       return View(model);
     }
@@ -41,8 +41,10 @@ public ActionResult Create(Machine Machine, int EngineerId)
 
         if (EngineerId > 0)
         {
-            _db.EngineerMachines.Add(new EngineerMachine() { MachineId = Machine.MachineId, EngineerId = EngineerId });
-            _db.SaveChanges();
+          //  _db.Machines
+          //                     .Include(Machine => Machine.JoinEntities)
+          //                     .ThenInclude(join => join.Engineer)
+          //                     .FirstOrDefault(Machine => Machine.MachineId == id);
         }
 
         return RedirectToAction("Index");

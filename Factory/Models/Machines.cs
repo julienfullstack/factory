@@ -13,9 +13,6 @@ namespace Factory.Models
         [Required(ErrorMessage = "This field can't be left empty")]
         public string Name { get; set; } = "";
 
-        [ForeignKey("Engineer")]
-        public int EngineerId { get; set; }
-        public virtual Engineer Engineer { get; set; } = null!;
         public List<EngineerMachine> JoinEntities { get; } = new List<EngineerMachine>();
     }
 #nullable disable

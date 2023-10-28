@@ -74,7 +74,8 @@ public ActionResult AddMachine(Engineer Engineer, int MachineId)
 	public ActionResult Edit(int id)
 {
     Engineer thisEngineer = _db.Engineers
-                            .Include(Engineer => Engineer.Machines)
+                            .Include(Engineer => Engineer.JoinEntities)
+														.ThenInclude(join => join.Machine)
                             .FirstOrDefault(Engineer => Engineer.EngineerId == id);
     return View(thisEngineer);
 }
