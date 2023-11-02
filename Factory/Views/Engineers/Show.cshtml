@@ -6,21 +6,28 @@
 @using Factory.Models
 
 
-@if (Model.JoinEntities != null && Model.JoinEntities.Any())
+@if(@Model.JoinEntities.Count == 0)
 {
-    <h2>Machines for @Html.DisplayFor(model => model.Name):</h2>
-    foreach (EngineerMachine joinEntity in Model.JoinEntities)
-    {
-        <p>Machine Name: @joinEntity.Machine.Name</p>
-    }
-    
+  <p>This engineer is not assigned to any machines</p>
 }
 else
 {
-    <p>No Machines available for this Engineer.</p>
+  <h4>This engineer services the following machines:</h4>
+  <ul>
+    @foreach(EngineerMachine join in Model.JoinEntities)
+    {
+      <li>Machine: @join.Machine.Name</li>
+      @using (Html.BeginForm("DeleteJoin", "Engineers"))
+      {
+        @Html.Hidden("joinId", @join.EngineerMachineId)
+        <input type="submit" value="Delete"/>
+      }
+    }
+  </ul>
+
 }
 
-@Html.ActionLink("Delete", "Delete", new { id = Model.EngineerId })
+
 
 <p>@Html.ActionLink("Add a Machine to Engineer", "AddMachine", new { id = Model.EngineerId })</p>
 
