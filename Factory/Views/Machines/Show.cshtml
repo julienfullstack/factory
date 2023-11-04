@@ -5,17 +5,18 @@
 @model Factory.Models.Machine
 @using Factory.Models
 
+
 @if(@Model.JoinEntities.Count == 0)
 {
-  <p>This Machine has no Engineer</p>
+  <p>This machine is not assigned to any engineers</p>
 }
 else
 {
-  <h4>This Machine belongs to the following Engineers:</h4>
+  <h4>This machine assigned to the following engineerss:</h4>
   <ul>
     @foreach(EngineerMachine join in Model.JoinEntities)
     {
-      <li>Engineer: @join.Engineer.Name</li>
+      <li>Engineer: @join.Machine.Name</li>
       @using (Html.BeginForm("DeleteJoin", "Machines"))
       {
         @Html.Hidden("joinId", @join.EngineerMachineId)
@@ -23,9 +24,16 @@ else
       }
     }
   </ul>
-
 }
 
 <p>@Html.ActionLink("Add a Engineer to Machine", "AddEngineer", new { id = Model.MachineId })</p>
-<p>@Html.ActionLink("Back to Machine list", "Index") 
 
+@using (Html.BeginForm("Delete", "Engineers", new { id = Model.MachineId }, FormMethod.Post))
+{
+    <input type="submit" value="Delete Machine" onclick="location.href='@Url.Action("Delete", "Machines", new { id = Model.MachineId })'; return false;" />
+  }
+
+@using (Html.BeginForm("Edit", "Machines", new { id = Model.MachineId }, FormMethod.Post))
+{
+    <input type="submit" value="Edit Machine" onclick="location.href='@Url.Action("Edit", "Machines", new { id = Model.MachineId })'; return false;" />
+  }

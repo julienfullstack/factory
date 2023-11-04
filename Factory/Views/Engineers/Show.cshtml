@@ -24,10 +24,17 @@ else
       }
     }
   </ul>
-
 }
 
-
-
 <p>@Html.ActionLink("Add a Machine to Engineer", "AddMachine", new { id = Model.EngineerId })</p>
+
+@using (Html.BeginForm("Delete", "Engineers", new { id = Model.EngineerId }, FormMethod.Post))
+{
+    <input type="submit" value="Delete Engineer" onclick="location.href='@Url.Action("Delete", "Engineers", new { id = Model.EngineerId })'; return false;" />
+  }
+
+@using (Html.BeginForm("Edit", "Engineers", new { id = Model.EngineerId }, FormMethod.Post))
+{
+    <input type="submit" value="Edit Engineer" onclick="location.href='@Url.Action("Edit", "Engineers", new { id = Model.EngineerId })'; return false;" />
+  }
 
