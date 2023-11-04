@@ -71,23 +71,20 @@ public ActionResult AddMachine(Engineer Engineer, int MachineId)
 }
 
 
-	public ActionResult Edit(int id)
+public ActionResult Edit(int id)
 {
-    Engineer thisEngineer = _db.Engineers
-                            .Include(Engineer => Engineer.JoinEntities)
-														.ThenInclude(join => join.Machine)
-                            .FirstOrDefault(Engineer => Engineer.EngineerId == id);
-    return View(thisEngineer);
+	var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
+	return View(thisEngineer);
 }
 
-
-		[HttpPost]
-		public ActionResult Edit(Engineer Engineer)
-		{
-			_db.Entry(Engineer).State = EntityState.Modified;
-			_db.SaveChanges();
-			return RedirectToAction("Index");
-		}
+[HttpPost]
+public ActionResult Edit(int id, string name)
+{
+	var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
+	thisEngineer.Name = name;
+	_db.SaveChanges();
+	return RedirectToAction("Index");
+}
 
 		public ActionResult Delete(int id)
 		{
